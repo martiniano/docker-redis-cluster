@@ -1,11 +1,8 @@
-FROM redis:latest
+FROM redis:6
 
-MAINTAINER Tommy Elmesewdy <r1tommy@gmail.com>
+LABEL authors="Anderson Martiniano <martiniano@riseup.net>"
 
-RUN apt-get update
-RUN apt-get install -y gettext-base
-
-COPY redis.conf /etc/redis/redis.conf.template
+COPY redis.conf /etc/redis/redis.conf
 COPY start.sh /start.sh
 
 ENTRYPOINT [ "/bin/bash", "/start.sh" ]
